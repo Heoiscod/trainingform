@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickle Social Cebu - Morning Training Registration</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="header">
+        <h1>Pickle Social — Cebu</h1>
+        <p>Morning Training Session Registration</p>
+    </div>
+
+    <!-- Information Section -->
+    <div class="info-card">
+        <h3>Training Details & Inclusions</h3>
+        <p>Elevate your pickleball skills with focused, high-energy morning sessions!</p>
+        <ul>
+            <li><strong>Schedule:</strong> Mondays, Wednesdays, & Fridays (MWF)</li>
+            <li><strong>Time Slots:</strong> 7:00 AM – 9:00 AM | 9:00 AM – 11:00 AM</li>
+            <li><strong>Inclusions:</strong> Court Access, Drill Equipment, Coaching/Drill Fee, & Complimentary Water</li>
+        </ul>
+    </div>
+
+    <form id="registrationForm">
+        <div id="formStatus" class="form-status" aria-live="polite"></div>
+        
+        <!-- General Contact Info -->
+        <div class="form-group">
+            <label for="contactNumber">Contact Number *</label>
+            <input type="tel" id="contactNumber" name="contact_number" required placeholder="09XX XXX XXXX">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="your.name@email.com">
+        </div>
+
+        <!-- Schedule Selection -->
+        <div class="form-group">
+            <label for="day">Preferred Day (MWF) *</label>
+            <select id="day" name="preferred_day" required>
+                <option value="" disabled selected>Select a day</option>
+                <option value="Monday">Monday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Friday">Friday</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="timeSlot">Preferred Time Slot *</label>
+            <select id="timeSlot" name="preferred_time_slot" required>
+                <option value="" disabled selected>Select time slot</option>
+                <option value="7:00 AM - 9:00 AM">7:00 AM – 9:00 AM</option>
+                <option value="9:00 AM - 11:00 AM">9:00 AM – 11:00 AM</option>
+            </select>
+        </div>
+
+        <!-- Package Selection -->
+        <div class="form-group">
+            <label>Select Training Package *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="package" value="solo" required>
+                    <strong>Solo Session</strong><br>
+                    <small>₱1,400 (1 Player)</small>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="package" value="duo">
+                    <strong>Duo Promo</strong><br>
+                    <small>₱900 / player (₱1,800 total)</small>
+                </label>
+            </div>
+        </div>
+
+        <!-- Dynamic Section: Solo Player Only -->
+        <div id="soloSection" class="conditional-section">
+            <h4>Solo Player Details</h4>
+            <div class="form-group" style="margin-bottom:0;">
+                <label for="soloName">Player Full Name *</label>
+                <input type="text" id="soloName" name="solo_name" placeholder="Enter your full name">
+            </div>
+        </div>
+
+        <!-- Dynamic Section: Duo Players Only -->
+        <div id="duoSection" class="conditional-section">
+            <h4>Duo Players Details</h4>
+            <div class="form-group">
+                <label for="player1Name">Player 1 Full Name *</label>
+                <input type="text" id="player1Name" name="player_1_name" placeholder="Enter First Player's full name">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+                <label for="player2Name">Player 2 Full Name *</label>
+                <input type="text" id="player2Name" name="player_2_name" placeholder="Enter Second Player's full name">
+            </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="form-group">
+            <label for="paymentMethod">Payment Method *</label>
+            <select id="paymentMethod" name="payment_method" required>
+                <option value="" disabled selected>Select payment method</option>
+                <option value="GCash">GCash</option>
+                <option value="Maya">Maya</option>
+                <option value="Cash on Site">Cash on Site</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Complete Reservation</button>
+    </form>
+</div>
+
+<script src="assets/js/script.js"></script>
+
+</body>
+</html>
